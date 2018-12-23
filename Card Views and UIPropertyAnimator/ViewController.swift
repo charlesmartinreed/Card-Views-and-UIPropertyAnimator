@@ -63,7 +63,12 @@ class ViewController: UIViewController {
 
     //MARK:- Gesture handling
     @objc func handleCardTap(_ recognizer: UITapGestureRecognizer) {
-        
+        switch recognizer.state {
+        case .ended:
+            animateTransationIfNeeded(state: nextState, duration: 0.9)
+        default:
+            break
+        }
     }
     
     @objc func handleCardPan(_ recognizer: UIPanGestureRecognizer) {
